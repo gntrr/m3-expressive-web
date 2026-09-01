@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build and test output
+dist/
+storybook-static/
+coverage/
+playwright-report/
+test-results/
+.vitest/
+.tsup/
+*.tsbuildinfo
+
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# Editor and operating-system files
+.DS_Store
+*.log
