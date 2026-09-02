@@ -31,6 +31,10 @@
       "types": "./dist/foundation/index.d.ts",
       "import": "./dist/foundation/index.js"
     },
+    "./foundation/adaptive-layout": {
+      "types": "./dist/foundation/adaptive-layout/index.d.ts",
+      "import": "./dist/foundation/adaptive-layout/index.js"
+    },
     "./foundation/color": {
       "types": "./dist/foundation/color/index.d.ts",
       "import": "./dist/foundation/color/index.js"
@@ -50,6 +54,10 @@
     "./foundation/shape": {
       "types": "./dist/foundation/shape/index.d.ts",
       "import": "./dist/foundation/shape/index.js"
+    },
+    "./foundation/state": {
+      "types": "./dist/foundation/state/index.d.ts",
+      "import": "./dist/foundation/state/index.js"
     },
     "./foundation/typography": {
       "types": "./dist/foundation/typography/index.d.ts",

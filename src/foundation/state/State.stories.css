@@ -1,0 +1,296 @@
+.state-story {
+  --state-ink: #1d192b;
+  --state-surface: #f8f7ff;
+  --state-surface-strong: #e8def8;
+  --state-accent: #6750a4;
+  background: var(--state-surface);
+  color: var(--state-ink);
+  font-family: Inter, Roboto, system-ui, sans-serif;
+  min-block-size: 100vh;
+  padding: clamp(24px, 5vw, 64px);
+}
+
+.state-story__header {
+  max-inline-size: 760px;
+  margin-block-end: 40px;
+}
+
+.state-story__header h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  margin: 4px 0 16px;
+}
+
+.state-story__header > p:last-child {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.state-story__eyebrow {
+  color: var(--state-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.state-grid,
+.composition-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.state-sample,
+.composition-card {
+  background: #fff;
+  border: 1px solid #cac4d0;
+  border-radius: 20px;
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+}
+
+.state-sample__control,
+.composition-card__visual {
+  align-items: center;
+  background: var(--state-surface-strong);
+  border-radius: 999px;
+  display: flex;
+  isolation: isolate;
+  justify-content: center;
+  min-block-size: 48px;
+  overflow: hidden;
+  padding-inline: 20px;
+  position: relative;
+}
+
+.state-sample__control::before,
+.composition-card__visual::before,
+.interactive-demo::before {
+  background: var(--state-ink);
+  content: '';
+  inset: 0;
+  opacity: var(--state-demo-opacity, 0);
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.state-sample--hover { --state-demo-opacity: var(--md-sys-state-hover-state-layer-opacity); }
+.state-sample--focus { --state-demo-opacity: var(--md-sys-state-focus-state-layer-opacity); }
+.state-sample--pressed { --state-demo-opacity: var(--md-sys-state-pressed-state-layer-opacity); }
+.state-sample--dragged { --state-demo-opacity: var(--md-sys-state-dragged-state-layer-opacity); }
+
+.state-sample--focus .state-sample__control {
+  outline: 3px solid var(--state-accent);
+  outline-offset: 3px;
+}
+
+.state-sample--disabled {
+  border-style: dashed;
+}
+
+.state-sample--disabled .state-sample__control {
+  background: #e7e5e9;
+  color: #49454f;
+}
+
+.state-sample code,
+.composition-card code {
+  font-size: 0.75rem;
+  white-space: normal;
+}
+
+.state-sample small {
+  color: #625b71;
+}
+
+.composition-card__visual--hover { --state-demo-opacity: var(--md-sys-state-hover-state-layer-opacity); }
+.composition-card__visual--focus,
+.composition-card__visual--pressed { --state-demo-opacity: var(--md-sys-state-focus-state-layer-opacity); }
+
+.composition-card__visual i {
+  border: 3px solid var(--state-accent);
+  border-radius: inherit;
+  inset: -1px;
+  pointer-events: none;
+  position: absolute;
+}
+
+.focus-demo,
+.semantic-demo,
+.disabled-demo,
+.forced-colors-demo,
+.pointer-demo {
+  background: #fff;
+  border: 1px solid #cac4d0;
+  border-radius: 24px;
+  padding: clamp(20px, 4vw, 36px);
+}
+
+.focus-demo__row,
+.semantic-demo,
+.disabled-demo,
+.forced-colors-demo,
+.pointer-demo {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.interactive-demo,
+.forced-colors-demo button,
+.pointer-demo button {
+  background: var(--state-surface-strong);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--state-ink);
+  font: inherit;
+  font-weight: 650;
+  min-block-size: 40px;
+  padding-inline: 20px;
+  position: relative;
+}
+
+.interactive-demo:focus-visible,
+.forced-colors-demo button:focus-visible,
+.pointer-demo button:focus-visible {
+  outline: 3px solid var(--state-accent);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .interactive-demo:not(:disabled, [aria-disabled='true']):hover {
+    background: color-mix(
+      in srgb,
+      var(--state-ink) calc(var(--md-sys-state-hover-state-layer-opacity) * 100%),
+      var(--state-surface-strong)
+    );
+  }
+}
+
+.interactive-demo:not(:disabled, [aria-disabled='true']):active {
+  background: color-mix(
+    in srgb,
+    var(--state-ink) calc(var(--md-sys-state-pressed-state-layer-opacity) * 100%),
+    var(--state-surface-strong)
+  );
+}
+
+.focus-demo__status {
+  color: #625b71;
+}
+
+.interactive-demo:focus + .focus-demo__status {
+  color: var(--state-ink);
+  font-weight: 700;
+  font-size: 0;
+}
+
+.interactive-demo:focus + .focus-demo__status::before {
+  content: 'DOM focused';
+  font-size: 0.875rem;
+}
+
+.interactive-demo:focus-visible + .focus-demo__status::after {
+  content: ' · focus-visible';
+  font-size: 0.875rem;
+}
+
+.is-selected {
+  background: var(--state-accent);
+  color: #fff;
+}
+
+.check-demo {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  min-block-size: 48px;
+}
+
+.check-demo input {
+  block-size: 20px;
+  inline-size: 20px;
+}
+
+.disabled-demo > div {
+  display: grid;
+  gap: 8px;
+}
+
+.interactive-demo:disabled,
+.interactive-demo[aria-disabled='true'] {
+  opacity: 0.5;
+}
+
+.forced-colors-demo button[aria-pressed='true']::after {
+  content: ' ✓';
+}
+
+.is-forced-colors-simulation button {
+  background: ButtonFace;
+  border: 2px solid ButtonText;
+  color: ButtonText;
+}
+
+.is-forced-colors-simulation button:focus-visible {
+  outline: 3px solid Highlight;
+  outline-offset: 3px;
+}
+
+.is-forced-colors-simulation button:disabled {
+  border-color: GrayText;
+  color: GrayText;
+}
+
+.is-coarse-pointer-simulation button {
+  min-block-size: 48px;
+  min-inline-size: 48px;
+}
+
+@media (pointer: coarse) {
+  .pointer-demo button {
+    min-block-size: 48px;
+    min-inline-size: 48px;
+  }
+}
+
+@media (forced-colors: active) {
+  .forced-colors-demo button {
+    background: ButtonFace;
+    border: 2px solid ButtonText;
+    color: ButtonText;
+  }
+
+  .forced-colors-demo button:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 3px;
+  }
+
+  .forced-colors-demo button:disabled {
+    border-color: GrayText;
+    color: GrayText;
+  }
+
+  .state-sample__control::before,
+  .composition-card__visual::before,
+  .interactive-demo::before {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .focus-demo__row,
+  .semantic-demo,
+  .disabled-demo,
+  .forced-colors-demo,
+  .pointer-demo {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

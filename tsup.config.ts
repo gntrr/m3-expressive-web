@@ -13,11 +13,13 @@ const declarationEntries = {
   index: 'src/index.ts',
   'components/index': 'src/components/index.ts',
   'foundation/index': 'src/foundation/index.ts',
+  'foundation/adaptive-layout/index': 'src/foundation/adaptive-layout/index.ts',
   'foundation/color/index': 'src/foundation/color/index.ts',
   'foundation/color/generator': 'src/foundation/color/generator.ts',
   'foundation/elevation/index': 'src/foundation/elevation/index.ts',
   'foundation/motion/index': 'src/foundation/motion/index.ts',
   'foundation/shape/index': 'src/foundation/shape/index.ts',
+  'foundation/state/index': 'src/foundation/state/index.ts',
   'foundation/typography/index': 'src/foundation/typography/index.ts',
   'utilities/index': 'src/utilities/index.ts',
 };
