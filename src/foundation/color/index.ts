@@ -1,4 +1,3 @@
-export { createMaterialColorScheme } from './create-material-color-scheme.js';
 export {
   materialColorRoleToCssVariable,
   toMaterialColorCss,

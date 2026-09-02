@@ -1,0 +1,117 @@
+.typography-story {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 3rem clamp(1.25rem, 5vw, 5rem) 5rem;
+  background: Canvas;
+  color: CanvasText;
+  font-family: var(--md-ref-typeface-plain);
+}
+
+.typography-story *,
+.typography-story *::before,
+.typography-story *::after {
+  box-sizing: inherit;
+}
+
+.typography-story__header {
+  max-width: 52rem;
+  margin-block-end: 3rem;
+}
+
+.typography-story__header h1 {
+  margin: 0;
+  font-family: var(--md-sys-typescale-headline-large-font);
+  font-size: var(--md-sys-typescale-headline-large-size);
+  line-height: var(--md-sys-typescale-headline-large-line-height);
+  font-weight: var(--md-sys-typescale-headline-large-weight);
+  letter-spacing: var(--md-sys-typescale-headline-large-tracking);
+}
+
+.typography-story__header > p:last-child {
+  max-width: 46rem;
+  margin: 0.75rem 0 0;
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  font-weight: var(--md-sys-typescale-body-large-weight);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+}
+
+.typography-story__eyebrow,
+.type-specimen__role,
+.type-specimen__metrics {
+  font-family: var(--md-sys-typescale-label-medium-font);
+  font-size: var(--md-sys-typescale-label-medium-size);
+  line-height: var(--md-sys-typescale-label-medium-line-height);
+  font-weight: var(--md-sys-typescale-label-medium-weight);
+  letter-spacing: var(--md-sys-typescale-label-medium-tracking);
+}
+
+.typography-story__eyebrow {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+
+.type-specimen-list {
+  display: grid;
+  gap: 0;
+  border-block-start: 0.0625rem solid ButtonBorder;
+}
+
+.type-specimen {
+  min-width: 0;
+  padding-block: 1.5rem;
+  border-block-end: 0.0625rem solid ButtonBorder;
+}
+
+.type-specimen__role,
+.type-specimen__metrics {
+  margin: 0;
+}
+
+.type-specimen__sample {
+  overflow-wrap: anywhere;
+  margin: 0.5rem 0;
+}
+
+.type-article {
+  max-width: 48rem;
+}
+
+.type-article > * {
+  margin-block: 0 1.25rem;
+}
+
+.font-comparison {
+  display: grid;
+  gap: 2rem;
+  max-width: 52rem;
+}
+
+.font-comparison article {
+  padding: 1.5rem;
+  border: 0.0625rem solid ButtonBorder;
+}
+
+.font-comparison article > :last-child {
+  margin-block: 0.75rem 0;
+}
+
+.reflow-example {
+  width: 100%;
+  max-width: 42rem;
+  min-width: min(16rem, 100%);
+  padding: 1.5rem;
+  overflow: auto;
+  resize: horizontal;
+  border: 0.0625rem solid ButtonBorder;
+}
+
+.reflow-example > * {
+  overflow-wrap: anywhere;
+  margin-block: 0 1rem;
+}
+
+.reflow-example > :last-child {
+  margin-block-end: 0;
+}

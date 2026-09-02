@@ -31,6 +31,30 @@
       "types": "./dist/foundation/index.d.ts",
       "import": "./dist/foundation/index.js"
     },
+    "./foundation/color": {
+      "types": "./dist/foundation/color/index.d.ts",
+      "import": "./dist/foundation/color/index.js"
+    },
+    "./foundation/color/generator": {
+      "types": "./dist/foundation/color/generator.d.ts",
+      "import": "./dist/foundation/color/generator.js"
+    },
+    "./foundation/elevation": {
+      "types": "./dist/foundation/elevation/index.d.ts",
+      "import": "./dist/foundation/elevation/index.js"
+    },
+    "./foundation/motion": {
+      "types": "./dist/foundation/motion/index.d.ts",
+      "import": "./dist/foundation/motion/index.js"
+    },
+    "./foundation/shape": {
+      "types": "./dist/foundation/shape/index.d.ts",
+      "import": "./dist/foundation/shape/index.js"
+    },
+    "./foundation/typography": {
+      "types": "./dist/foundation/typography/index.d.ts",
+      "import": "./dist/foundation/typography/index.js"
+    },
     "./styles.css": "./dist/styles/index.css"
   },
   "peerDependencies": {

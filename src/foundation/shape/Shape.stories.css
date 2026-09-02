@@ -1,0 +1,177 @@
+.shape-story {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 3rem clamp(1.25rem, 5vw, 5rem) 5rem;
+  background: Canvas;
+  color: CanvasText;
+  font-family: system-ui, sans-serif;
+}
+
+.shape-story *,
+.shape-story *::before,
+.shape-story *::after {
+  box-sizing: inherit;
+}
+
+.shape-story__header {
+  max-width: 52rem;
+  margin-block-end: 3rem;
+}
+
+.shape-story__header h1 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+.shape-story__header > p:last-child {
+  max-width: 46rem;
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.shape-story__eyebrow,
+.corner-specimen p,
+.named-shape figcaption,
+.direction-panel figcaption {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.shape-story__eyebrow {
+  margin-block-end: 0.5rem;
+  text-transform: uppercase;
+}
+
+.corner-grid,
+.named-shape-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 1rem;
+}
+
+.corner-specimen,
+.named-shape {
+  min-width: 0;
+  margin: 0;
+  padding: 1rem;
+  border: 0.0625rem solid ButtonBorder;
+  border-radius: var(--md-sys-shape-corner-small);
+}
+
+.corner-specimen__shape {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin-block-end: 0.75rem;
+  background: CanvasText;
+}
+
+.corner-specimen p + p {
+  margin-block-start: 0.25rem;
+}
+
+.named-shape {
+  display: grid;
+  place-items: center;
+  gap: 0.75rem;
+}
+
+.named-shape svg {
+  display: block;
+  width: min(100%, 7rem);
+  height: auto;
+  aspect-ratio: 1;
+  overflow: visible;
+  color: CanvasText;
+}
+
+.named-shape path,
+.hit-area-demo path {
+  fill: currentColor;
+}
+
+.direction-comparison {
+  display: grid;
+  gap: 2rem;
+}
+
+.direction-panel {
+  padding: 1.5rem;
+  border: 0.0625rem solid ButtonBorder;
+}
+
+.direction-panel h2 {
+  margin-block: 0 1.25rem;
+  font-size: 1rem;
+}
+
+.direction-row,
+.resize-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 1.5rem;
+}
+
+.direction-row figure {
+  margin: 0;
+}
+
+.direction-row figure > div {
+  width: 7rem;
+  height: 5rem;
+  margin-block-end: 0.5rem;
+  background: CanvasText;
+}
+
+.resize-row .named-shape {
+  width: auto;
+}
+
+.hit-area-demo {
+  max-width: 34rem;
+}
+
+.hit-area-demo button {
+  display: inline-grid;
+  place-items: center;
+  gap: 0.75rem;
+  min-width: 12rem;
+  min-height: 12rem;
+  padding: 1rem;
+  border: 0.125rem dashed CanvasText;
+  border-radius: 0;
+  background: Canvas;
+  color: CanvasText;
+  font: inherit;
+  cursor: pointer;
+}
+
+.hit-area-demo button:focus-visible {
+  outline: 0.1875rem solid Highlight;
+  outline-offset: 0.25rem;
+}
+
+.hit-area-demo svg {
+  width: 6rem;
+  height: 6rem;
+  overflow: visible;
+}
+
+.hit-area-demo p {
+  margin-block: 1.25rem 0;
+  line-height: 1.5;
+}
+
+@media (forced-colors: active) {
+  .corner-specimen__shape,
+  .direction-row figure > div,
+  .named-shape path,
+  .hit-area-demo path {
+    forced-color-adjust: auto;
+    background: CanvasText;
+    fill: CanvasText;
+  }
+}

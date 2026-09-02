@@ -1,0 +1,256 @@
+.motion-story {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 3rem clamp(1.25rem, 5vw, 5rem) 6rem;
+  background: Canvas;
+  color: CanvasText;
+  font-family: system-ui, sans-serif;
+}
+
+.motion-story *,
+.motion-story *::before,
+.motion-story *::after {
+  box-sizing: inherit;
+}
+
+.motion-story__header {
+  max-width: 54rem;
+  margin-block-end: 3rem;
+}
+
+.motion-story__header h1 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+.motion-story__header > p:last-child {
+  max-width: 50rem;
+  margin: 0.75rem 0 0;
+  line-height: 1.5;
+}
+
+.motion-story__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.scheme-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2rem;
+}
+
+.scheme-panel {
+  padding: 1.5rem;
+  border: 0.0625rem solid ButtonBorder;
+}
+
+.scheme-panel > header h2,
+.reduced-motion-rules h2 {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.scheme-panel > header p {
+  min-height: 3rem;
+  margin: 0.5rem 0 1.5rem;
+  line-height: 1.5;
+}
+
+.scheme-token-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.motion-token {
+  padding: 1rem;
+  border: 0.0625rem solid color-mix(in srgb, CanvasText 14%, transparent);
+}
+
+.motion-token__heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.motion-token__heading span,
+.motion-token p {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.motion-token p {
+  margin: 0.5rem 0 0;
+}
+
+.motion-token__meter {
+  height: 0.375rem;
+  margin-block-start: 0.75rem;
+  background: ButtonFace;
+}
+
+.motion-token__meter span {
+  display: block;
+  height: 100%;
+  background: CanvasText;
+}
+
+.motion-demo {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 42rem;
+}
+
+.motion-demo button {
+  justify-self: start;
+  min-height: 2.75rem;
+  padding-inline: 1rem;
+  border: 0.0625rem solid ButtonBorder;
+  background: ButtonFace;
+  color: ButtonText;
+  font: inherit;
+  cursor: pointer;
+}
+
+.motion-demo button:focus-visible {
+  outline: 0.1875rem solid Highlight;
+  outline-offset: 0.1875rem;
+}
+
+.motion-demo > p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.motion-track {
+  position: relative;
+  height: 7rem;
+  border: 0.0625rem solid ButtonBorder;
+  overflow: hidden;
+}
+
+.motion-track__object {
+  position: absolute;
+  inset-block-start: 1.5rem;
+  inset-inline-start: 1.5rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: CanvasText;
+  transform: translateX(0);
+  transition:
+    transform var(--md-sys-motion-duration-medium4)
+    var(--md-sys-motion-easing-emphasized-decelerate);
+}
+
+.motion-track.is-active .motion-track__object {
+  transform: translateX(min(28rem, calc(100vw - 10rem)));
+}
+
+.effects-stage {
+  display: grid;
+  gap: 1rem;
+  min-height: 8rem;
+  padding: 1.5rem;
+  border: 0.0625rem solid ButtonBorder;
+}
+
+.effects-stage__object {
+  width: min(100%, 16rem);
+  min-height: 5rem;
+  border: 0.125rem solid CanvasText;
+  background: CanvasText;
+  opacity: 0.35;
+  transition:
+    opacity var(--md-sys-motion-duration-medium2)
+    var(--md-sys-motion-easing-standard);
+}
+
+.effects-stage.is-active .effects-stage__object {
+  opacity: 1;
+}
+
+.effects-stage p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.reduced-motion-demo {
+  display: grid;
+  gap: 3rem;
+}
+
+.reduced-motion-demo__visual {
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+  border: 0.0625rem solid ButtonBorder;
+  border-radius: 50%;
+}
+
+.reduced-motion-demo__visual span {
+  position: absolute;
+  inset-block-start: 0.5rem;
+  inset-inline-start: calc(50% - 0.75rem);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: CanvasText;
+  transform-origin: 50% 5.5rem;
+  animation: motion-story-orbit 2s linear infinite;
+}
+
+.reduced-motion-rules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+}
+
+.reduced-motion-rules article {
+  padding: 1rem;
+  border: 0.0625rem solid ButtonBorder;
+}
+
+.reduced-motion-rules p {
+  margin: 0.5rem 0 0;
+  line-height: 1.5;
+}
+
+@keyframes motion-story-orbit {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reduced-motion-demo__visual span {
+    animation: none;
+  }
+
+  .motion-track__object {
+    transform: none !important;
+    transition-property: opacity;
+  }
+
+  .motion-track.is-active .motion-track__object {
+    opacity: 0.55;
+  }
+}
+
+@media (forced-colors: active) {
+  .motion-token__meter span,
+  .motion-track__object,
+  .reduced-motion-demo__visual span {
+    background: CanvasText;
+    forced-color-adjust: auto;
+  }
+
+  .effects-stage__object {
+    border-color: CanvasText;
+  }
+}

@@ -6,7 +6,6 @@ import {
   MATERIAL_COLOR_ROLES,
   MATERIAL_TONAL_PALETTE_NAMES,
   MATERIAL_TONES,
-  createMaterialColorScheme,
   materialColorRoleToCssVariable,
   toMaterialColorCssVariables,
 } from './index.js';
@@ -15,6 +14,7 @@ import type {
   MaterialColorRole,
   MaterialColorScheme,
 } from './index.js';
+import { createMaterialColorScheme } from './generator.js';
 
 import './Color.stories.css';
 

@@ -5,9 +5,9 @@ React or DOM dependency.
 
 ```ts
 import {
-  createMaterialColorScheme,
   toMaterialColorCss,
 } from 'm3-expressive-web/foundation';
+import { createMaterialColorScheme } from 'm3-expressive-web/foundation/color/generator';
 
 const colors = createMaterialColorScheme({
   seed: '#6750A4',

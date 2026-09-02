@@ -1,0 +1,126 @@
+.elevation-story {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 3rem clamp(1.25rem, 5vw, 5rem) 6rem;
+  background: Canvas;
+  color: CanvasText;
+  font-family: system-ui, sans-serif;
+  --md-sys-color-shadow: #000;
+}
+
+.elevation-story *,
+.elevation-story *::before,
+.elevation-story *::after {
+  box-sizing: inherit;
+}
+
+.elevation-story__header {
+  max-width: 52rem;
+  margin-block-end: 4rem;
+}
+
+.elevation-story__header h1 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+.elevation-story__header > p:last-child {
+  max-width: 48rem;
+  margin: 0.75rem 0 0;
+  line-height: 1.5;
+}
+
+.elevation-story__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.elevation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 3rem 2rem;
+}
+
+.elevation-surface {
+  display: grid;
+  align-content: center;
+  min-height: 8rem;
+  padding: 1.25rem;
+  border: 0.0625rem solid color-mix(in srgb, CanvasText 12%, transparent);
+  border-radius: 1rem;
+  background: Canvas;
+  color: CanvasText;
+}
+
+.elevation-surface strong,
+.elevation-surface span {
+  display: block;
+}
+
+.elevation-surface span {
+  margin-block-start: 0.35rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.elevation-theme-grid,
+.treatment-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+}
+
+.elevation-theme {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+  border: 0.0625rem solid ButtonBorder;
+  background: Canvas;
+  color: CanvasText;
+}
+
+.elevation-theme--light {
+  color-scheme: light;
+}
+
+.elevation-theme--dark {
+  color-scheme: dark;
+}
+
+.elevation-theme h2,
+.treatment-comparison h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.stacking-demo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(11rem, 18rem));
+  align-items: start;
+  padding: 3rem;
+}
+
+.stacking-demo .elevation-surface:last-child {
+  margin-block-start: 4rem;
+  margin-inline-start: -4rem;
+}
+
+.treatment-comparison > div {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.elevation-surface--tonal {
+  background: var(--md-sys-color-surface-container-high, ButtonFace);
+}
+
+@media (forced-colors: active) {
+  .elevation-surface {
+    border-color: CanvasText;
+    box-shadow: none !important;
+    forced-color-adjust: auto;
+  }
+}

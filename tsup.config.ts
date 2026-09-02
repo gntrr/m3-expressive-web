@@ -2,7 +2,8 @@ import { defineConfig } from 'tsup';
 
 const sourceEntries = [
   'src/**/*.{ts,tsx}',
-  '!src/foundation/color/**',
+  '!src/foundation/color/create-material-color-scheme.ts',
+  '!src/foundation/color/generator.ts',
   '!src/**/*.stories.{ts,tsx}',
   '!src/**/*.test.{ts,tsx}',
   '!src/testing/**',
@@ -12,6 +13,12 @@ const declarationEntries = {
   index: 'src/index.ts',
   'components/index': 'src/components/index.ts',
   'foundation/index': 'src/foundation/index.ts',
+  'foundation/color/index': 'src/foundation/color/index.ts',
+  'foundation/color/generator': 'src/foundation/color/generator.ts',
+  'foundation/elevation/index': 'src/foundation/elevation/index.ts',
+  'foundation/motion/index': 'src/foundation/motion/index.ts',
+  'foundation/shape/index': 'src/foundation/shape/index.ts',
+  'foundation/typography/index': 'src/foundation/typography/index.ts',
   'utilities/index': 'src/utilities/index.ts',
 };
 
@@ -40,7 +47,7 @@ export default defineConfig([
   {
     ...sharedOptions,
     entry: {
-      'foundation/color/index': 'src/foundation/color/index.ts',
+      'foundation/color/generator': 'src/foundation/color/generator.ts',
     },
     bundle: true,
     splitting: false,

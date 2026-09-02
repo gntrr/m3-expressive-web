@@ -4,11 +4,11 @@ import {
   MATERIAL_COLOR_ROLES,
   MATERIAL_COLOR_SOURCE,
   MATERIAL_TONES,
-  createMaterialColorScheme,
   materialColorRoleToCssVariable,
   toMaterialColorCss,
   toMaterialColorCssVariables,
 } from './index.js';
+import { createMaterialColorScheme } from './generator.js';
 
 const INPUT = {
   seed: '#6750A4',
