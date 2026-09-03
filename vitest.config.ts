@@ -34,6 +34,7 @@ export default defineConfig({
           // Storybook's browser setup reaches this CommonJS package through an
           // ESM dependency. Prebundle the nested dependency for native ESM.
           include: [
+            'storybook/test',
             '@testing-library/dom',
             '@testing-library/dom > aria-query',
             '@testing-library/dom > lz-string',

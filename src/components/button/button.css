@@ -1,0 +1,371 @@
+/*
+ * Material Button renderer. System values remain owned by the foundations.
+ * --md-<variant>-button-* aliases are public; --_button-* aliases are private.
+ */
+.md-button {
+  --_button-container-color: transparent;
+  --_button-content-color: currentColor;
+  --_button-disabled-container-color: transparent;
+  --_button-disabled-content-color: color-mix(
+    in srgb,
+    var(--md-sys-color-on-surface-variant) 38%,
+    transparent
+  );
+  --_button-rest-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_button-hover-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_button-outline-color: transparent;
+  --_button-disabled-outline-color: transparent;
+  --_button-outline-width: 0px;
+
+  align-items: center;
+  appearance: none;
+  background: var(--_button-container-color);
+  border: 0;
+  border-radius: var(--_button-rest-shape);
+  box-shadow: var(--_button-rest-shadow);
+  box-sizing: border-box;
+  color: var(--_button-content-color);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--_button-label-font);
+  font-size: var(--_button-label-size);
+  font-weight: var(--_button-label-weight);
+  gap: var(--_button-icon-gap);
+  inline-size: fit-content;
+  justify-content: center;
+  letter-spacing: var(--_button-label-tracking);
+  line-height: var(--_button-label-line-height);
+  margin: 0;
+  min-block-size: var(--_button-height);
+  min-inline-size: 58px;
+  overflow: visible;
+  padding-block: var(--_button-block-padding);
+  padding-inline: var(--_button-inline-padding);
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.md-button::before,
+.md-button::after {
+  border-radius: inherit;
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.md-button::before {
+  background: currentColor;
+  opacity: 0;
+}
+
+.md-button::after {
+  box-shadow: inset 0 0 0 var(--_button-outline-width)
+    var(--_button-outline-color);
+}
+
+.md-button__label,
+.md-button__icon {
+  position: relative;
+}
+
+.md-button__label {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.md-button__icon {
+  block-size: var(--_button-icon-size);
+  display: inline-flex;
+  flex: 0 0 var(--_button-icon-size);
+  inline-size: var(--_button-icon-size);
+}
+
+.md-button__icon > :is(svg, img) {
+  block-size: 100%;
+  inline-size: 100%;
+  pointer-events: none;
+}
+
+.md-button[data-variant='filled'] {
+  --_button-container-color: var(
+    --md-filled-button-container-color,
+    var(--md-sys-color-primary)
+  );
+  --_button-content-color: var(
+    --md-filled-button-label-text-color,
+    var(--md-sys-color-on-primary)
+  );
+  --_button-disabled-container-color: var(
+    --md-filled-button-disabled-container-color,
+    color-mix(in srgb, var(--md-sys-color-on-surface) 10%, transparent)
+  );
+  --_button-disabled-content-color: var(
+    --md-filled-button-disabled-label-text-color,
+    color-mix(
+      in srgb,
+      var(--md-sys-color-on-surface-variant) 38%,
+      transparent
+    )
+  );
+  --_button-hover-shadow: var(--md-web-elevation-shadow-level1, none);
+}
+
+.md-button[data-variant='tonal'] {
+  --_button-container-color: var(
+    --md-filled-tonal-button-container-color,
+    var(--md-sys-color-secondary-container)
+  );
+  --_button-content-color: var(
+    --md-filled-tonal-button-label-text-color,
+    var(--md-sys-color-on-secondary-container)
+  );
+  --_button-disabled-container-color: var(
+    --md-filled-tonal-button-disabled-container-color,
+    color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent)
+  );
+  --_button-disabled-content-color: var(
+    --md-filled-tonal-button-disabled-label-text-color,
+    color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent)
+  );
+  --_button-hover-shadow: var(--md-web-elevation-shadow-level1, none);
+}
+
+.md-button[data-variant='elevated'] {
+  --_button-container-color: var(
+    --md-elevated-button-container-color,
+    var(--md-sys-color-surface-container-low)
+  );
+  --_button-content-color: var(
+    --md-elevated-button-label-text-color,
+    var(--md-sys-color-primary)
+  );
+  --_button-disabled-container-color: var(
+    --md-elevated-button-disabled-container-color,
+    color-mix(in srgb, var(--md-sys-color-on-surface) 10%, transparent)
+  );
+  --_button-disabled-content-color: var(
+    --md-elevated-button-disabled-label-text-color,
+    color-mix(
+      in srgb,
+      var(--md-sys-color-on-surface-variant) 38%,
+      transparent
+    )
+  );
+  --_button-rest-shadow: var(--md-web-elevation-shadow-level1, none);
+  --_button-hover-shadow: var(--md-web-elevation-shadow-level2, none);
+}
+
+.md-button[data-variant='outlined'] {
+  --_button-content-color: var(
+    --md-outlined-button-label-text-color,
+    var(--md-sys-color-on-surface-variant)
+  );
+  --_button-disabled-content-color: var(
+    --md-outlined-button-disabled-label-text-color,
+    color-mix(
+      in srgb,
+      var(--md-sys-color-on-surface-variant) 38%,
+      transparent
+    )
+  );
+  --_button-outline-color: var(
+    --md-outlined-button-outline-color,
+    var(--md-sys-color-outline-variant)
+  );
+  --_button-disabled-outline-color: var(
+    --md-outlined-button-disabled-outline-color,
+    color-mix(
+      in srgb,
+      var(--md-sys-color-on-surface-variant) 10%,
+      transparent
+    )
+  );
+  --_button-outline-width: var(
+    --md-outlined-button-outline-width,
+    var(--_button-size-outline-width)
+  );
+}
+
+.md-button[data-variant='text'] {
+  --_button-content-color: var(
+    --md-text-button-label-text-color,
+    var(--md-sys-color-on-surface-variant)
+  );
+  --_button-disabled-content-color: var(
+    --md-text-button-disabled-label-text-color,
+    color-mix(
+      in srgb,
+      var(--md-sys-color-on-surface-variant) 38%,
+      transparent
+    )
+  );
+}
+
+.md-button[data-size='extra-small'] {
+  --_button-height: var(--md-extra-small-button-container-height, 32px);
+  --_button-inline-padding: var(--md-extra-small-button-horizontal-padding, 12px);
+  --_button-block-padding: var(--md-extra-small-button-vertical-padding, 6px);
+  --_button-icon-size: var(--md-extra-small-button-icon-size, 20px);
+  --_button-icon-gap: var(--md-extra-small-button-icon-label-space, 4px);
+  --_button-label-font: var(--md-sys-typescale-label-large-font);
+  --_button-label-size: var(--md-sys-typescale-label-large-size);
+  --_button-label-line-height: var(--md-sys-typescale-label-large-line-height);
+  --_button-label-weight: var(--md-sys-typescale-label-large-weight);
+  --_button-label-tracking: var(--md-sys-typescale-label-large-tracking);
+  --_button-square-shape: var(--md-sys-shape-corner-medium);
+  --_button-pressed-shape: var(--md-sys-shape-corner-small);
+  --_button-size-outline-width: 1px;
+}
+
+.md-button[data-size='small'] {
+  --_button-height: var(--md-small-button-container-height, 40px);
+  --_button-inline-padding: var(--md-small-button-horizontal-padding, 16px);
+  --_button-block-padding: var(--md-small-button-vertical-padding, 10px);
+  --_button-icon-size: var(--md-small-button-icon-size, 20px);
+  --_button-icon-gap: var(--md-small-button-icon-label-space, 8px);
+  --_button-label-font: var(--md-sys-typescale-label-large-font);
+  --_button-label-size: var(--md-sys-typescale-label-large-size);
+  --_button-label-line-height: var(--md-sys-typescale-label-large-line-height);
+  --_button-label-weight: var(--md-sys-typescale-label-large-weight);
+  --_button-label-tracking: var(--md-sys-typescale-label-large-tracking);
+  --_button-square-shape: var(--md-sys-shape-corner-medium);
+  --_button-pressed-shape: var(--md-sys-shape-corner-small);
+  --_button-size-outline-width: 1px;
+}
+
+.md-button[data-size='medium'] {
+  --_button-height: var(--md-medium-button-container-height, 56px);
+  --_button-inline-padding: var(--md-medium-button-horizontal-padding, 24px);
+  --_button-block-padding: var(--md-medium-button-vertical-padding, 16px);
+  --_button-icon-size: var(--md-medium-button-icon-size, 24px);
+  --_button-icon-gap: var(--md-medium-button-icon-label-space, 8px);
+  --_button-label-font: var(--md-sys-typescale-title-medium-font);
+  --_button-label-size: var(--md-sys-typescale-title-medium-size);
+  --_button-label-line-height: var(--md-sys-typescale-title-medium-line-height);
+  --_button-label-weight: var(--md-sys-typescale-title-medium-weight);
+  --_button-label-tracking: var(--md-sys-typescale-title-medium-tracking);
+  --_button-square-shape: var(--md-sys-shape-corner-large);
+  --_button-pressed-shape: var(--md-sys-shape-corner-medium);
+  --_button-size-outline-width: 1px;
+}
+
+.md-button[data-size='large'] {
+  --_button-height: var(--md-large-button-container-height, 96px);
+  --_button-inline-padding: var(--md-large-button-horizontal-padding, 48px);
+  --_button-block-padding: var(--md-large-button-vertical-padding, 32px);
+  --_button-icon-size: var(--md-large-button-icon-size, 32px);
+  --_button-icon-gap: var(--md-large-button-icon-label-space, 12px);
+  --_button-label-font: var(--md-sys-typescale-headline-small-font);
+  --_button-label-size: var(--md-sys-typescale-headline-small-size);
+  --_button-label-line-height: var(--md-sys-typescale-headline-small-line-height);
+  --_button-label-weight: var(--md-sys-typescale-headline-small-weight);
+  --_button-label-tracking: var(--md-sys-typescale-headline-small-tracking);
+  --_button-square-shape: var(--md-sys-shape-corner-extra-large);
+  --_button-pressed-shape: var(--md-sys-shape-corner-large);
+  --_button-size-outline-width: 2px;
+}
+
+.md-button[data-size='extra-large'] {
+  --_button-height: var(--md-extra-large-button-container-height, 136px);
+  --_button-inline-padding: var(--md-extra-large-button-horizontal-padding, 64px);
+  --_button-block-padding: var(--md-extra-large-button-vertical-padding, 48px);
+  --_button-icon-size: var(--md-extra-large-button-icon-size, 40px);
+  --_button-icon-gap: var(--md-extra-large-button-icon-label-space, 16px);
+  --_button-label-font: var(--md-sys-typescale-headline-large-font);
+  --_button-label-size: var(--md-sys-typescale-headline-large-size);
+  --_button-label-line-height: var(--md-sys-typescale-headline-large-line-height);
+  --_button-label-weight: var(--md-sys-typescale-headline-large-weight);
+  --_button-label-tracking: var(--md-sys-typescale-headline-large-tracking);
+  --_button-square-shape: var(--md-sys-shape-corner-extra-large);
+  --_button-pressed-shape: var(--md-sys-shape-corner-large);
+  --_button-size-outline-width: 3px;
+}
+
+.md-button[data-shape='round'] {
+  --_button-rest-shape: calc(var(--_button-height) / 2);
+}
+
+.md-button[data-shape='square'] {
+  --_button-rest-shape: var(--_button-square-shape);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .md-button:not(:disabled):hover {
+    box-shadow: var(--_button-hover-shadow);
+  }
+
+  .md-button:not(:disabled):hover::before {
+    opacity: var(--md-sys-state-hover-state-layer-opacity);
+  }
+}
+
+.md-button:not(:disabled):focus-visible {
+  box-shadow: var(--_button-rest-shadow);
+  outline: auto;
+  outline-offset: 2px;
+}
+
+.md-button:not(:disabled):focus-visible::before {
+  opacity: var(--md-sys-state-focus-state-layer-opacity);
+}
+
+.md-button:not(:disabled):active {
+  border-radius: var(--_button-pressed-shape);
+  box-shadow: var(--_button-rest-shadow);
+}
+
+.md-button:not(:disabled):active::before {
+  opacity: var(--md-sys-state-pressed-state-layer-opacity);
+}
+
+.md-button:disabled {
+  background: var(--_button-disabled-container-color);
+  box-shadow: var(--md-web-elevation-shadow-level0, none);
+  color: var(--_button-disabled-content-color);
+  cursor: not-allowed;
+}
+
+.md-button:disabled::before {
+  opacity: 0;
+}
+
+.md-button:disabled::after {
+  box-shadow: inset 0 0 0 var(--_button-outline-width)
+    var(--_button-disabled-outline-color);
+}
+
+@media (forced-colors: active) {
+  .md-button {
+    background: ButtonFace;
+    box-shadow: none;
+    color: ButtonText;
+    forced-color-adjust: auto;
+  }
+
+  .md-button::before {
+    display: none;
+  }
+
+  .md-button::after {
+    box-shadow: inset 0 0 0 1px ButtonText;
+  }
+
+  .md-button:focus-visible {
+    outline: 2px solid Highlight;
+  }
+
+  .md-button:disabled {
+    color: GrayText;
+  }
+
+  .md-button:disabled::after {
+    box-shadow: inset 0 0 0 1px GrayText;
+  }
+}

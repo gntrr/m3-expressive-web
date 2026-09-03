@@ -12,6 +12,7 @@ const sourceEntries = [
 const declarationEntries = {
   index: 'src/index.ts',
   'components/index': 'src/components/index.ts',
+  'components/button/index': 'src/components/button/index.ts',
   'foundation/index': 'src/foundation/index.ts',
   'foundation/adaptive-layout/index': 'src/foundation/adaptive-layout/index.ts',
   'foundation/color/index': 'src/foundation/color/index.ts',
@@ -35,7 +36,12 @@ const sharedOptions = {
 export default defineConfig([
   {
     ...sharedOptions,
-    entry: [...sourceEntries, 'src/styles/**/*.css'],
+    entry: [
+      ...sourceEntries,
+      'src/styles/**/*.css',
+      'src/components/**/*.css',
+      '!src/**/*.stories.css',
+    ],
     bundle: false,
     splitting: false,
     clean: true,

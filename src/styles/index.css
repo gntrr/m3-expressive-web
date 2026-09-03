@@ -1,2 +1,2 @@
-/* Library-wide styles will be exported from this entry point. */
-
+/* Aggregate component stylesheet. Foundation variables remain consumer-defined. */
+@import '../components/button/button.css';

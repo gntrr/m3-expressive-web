@@ -2,7 +2,27 @@
 
 An experimental React 19 component library exploring Material 3 Expressive for modern web and Next.js applications.
 
-The repository is currently implementing its design foundations. It provides framework-agnostic Material 3 color, typography, shape, elevation, and motion foundations. UI components, layout, and production releases have not been implemented. The package remains intentionally private.
+The repository provides framework-agnostic Material 3 foundations and its first
+React component, Button. It remains experimental and intentionally private.
+
+## Button
+
+Import the React component separately from the opt-in aggregate stylesheet:
+
+```tsx
+import { Button } from 'm3-expressive-web/components/button';
+import 'm3-expressive-web/styles.css';
+
+<Button variant="filled" size="small" leadingIcon={<SaveIcon />}>
+  Save
+</Button>
+```
+
+Button renders a native `<button>` and supports the five ordinary variants,
+five Expressive size tiers, round or square geometry, decorative leading and
+trailing icons, native props, and a React 19 ref. Consumers must provide the
+semantic foundation CSS variables; the package does not install a default
+theme. See [`src/components/button/SPEC.md`](src/components/button/SPEC.md).
 
 ## Color foundation
 
