@@ -31,6 +31,10 @@
       "types": "./dist/components/button/index.d.ts",
       "import": "./dist/components/button/index.js"
     },
+    "./components/fab": {
+      "types": "./dist/components/fab/index.d.ts",
+      "import": "./dist/components/fab/index.js"
+    },
     "./components/icon-button": {
       "types": "./dist/components/icon-button/index.d.ts",
       "import": "./dist/components/icon-button/index.js"

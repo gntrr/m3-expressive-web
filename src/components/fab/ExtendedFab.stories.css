@@ -1,0 +1,28 @@
+@import './Fab.stories.css';
+
+.extended-fab-story__sizes {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.extended-fab-story__size-row {
+  align-items: center;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 5rem minmax(0, 1fr);
+}
+
+.extended-fab-story__size-row code {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.extended-fab-story__reflow-boundary {
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-medium);
+  max-inline-size: 26rem;
+  padding: 1rem;
+}
+
+.extended-fab-story__reflow-boundary .md-extended-fab {
+  max-inline-size: 100%;
+}

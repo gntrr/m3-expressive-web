@@ -13,6 +13,7 @@ const declarationEntries = {
   index: 'src/index.ts',
   'components/index': 'src/components/index.ts',
   'components/button/index': 'src/components/button/index.ts',
+  'components/fab/index': 'src/components/fab/index.ts',
   'components/icon-button/index': 'src/components/icon-button/index.ts',
   'foundation/index': 'src/foundation/index.ts',
   'foundation/adaptive-layout/index': 'src/foundation/adaptive-layout/index.ts',
