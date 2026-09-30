@@ -14,6 +14,7 @@ const declarationEntries = {
   'components/index': 'src/components/index.ts',
   'components/button/index': 'src/components/button/index.ts',
   'components/card/index': 'src/components/card/index.ts',
+  'components/chip/index': 'src/components/chip/index.ts',
   'components/fab/index': 'src/components/fab/index.ts',
   'components/icon-button/index': 'src/components/icon-button/index.ts',
   'foundation/index': 'src/foundation/index.ts',

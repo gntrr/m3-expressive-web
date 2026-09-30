@@ -35,6 +35,10 @@
       "types": "./dist/components/card/index.d.ts",
       "import": "./dist/components/card/index.js"
     },
+    "./components/chip": {
+      "types": "./dist/components/chip/index.d.ts",
+      "import": "./dist/components/chip/index.js"
+    },
     "./components/fab": {
       "types": "./dist/components/fab/index.d.ts",
       "import": "./dist/components/fab/index.js"
@@ -107,7 +111,7 @@
     "vitest": "^4.1.11"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "NODE_OPTIONS=--max-old-space-size=4096 tsup",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:unit": "vitest run --project unit",
