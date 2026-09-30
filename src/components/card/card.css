@@ -1,0 +1,54 @@
+/*
+ * Material Card renderer. Color, shape, and elevation values remain owned by
+ * the foundations. This primitive is static: it deliberately has no states.
+ */
+.md-card {
+  --_card-container-color: var(--md-sys-color-surface-container-highest);
+  --_card-content-color: var(--md-sys-color-on-surface);
+  --_card-outline-color: transparent;
+  --_card-outline-width: 0px;
+  --_card-rest-shadow: var(--md-web-elevation-shadow-level0, none);
+
+  background-color: var(--_card-container-color);
+  border-radius: var(--md-sys-shape-corner-medium);
+  box-shadow: var(--_card-rest-shadow);
+  box-sizing: border-box;
+  color: var(--_card-content-color);
+  position: relative;
+}
+
+.md-card::before {
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 var(--_card-outline-width)
+    var(--_card-outline-color);
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.md-card[data-variant='filled'] {
+  --_card-container-color: var(--md-sys-color-surface-container-highest);
+  --_card-content-color: var(--md-sys-color-on-surface);
+  --_card-rest-shadow: var(--md-web-elevation-shadow-level0, none);
+}
+
+.md-card[data-variant='elevated'] {
+  --_card-container-color: var(--md-sys-color-surface-container-low);
+  --_card-content-color: var(--md-sys-color-on-surface);
+  --_card-rest-shadow: var(--md-web-elevation-shadow-level1, none);
+}
+
+.md-card[data-variant='outlined'] {
+  --_card-container-color: var(--md-sys-color-surface);
+  --_card-content-color: var(--md-sys-color-on-surface);
+  --_card-outline-color: var(--md-sys-color-outline-variant);
+  --_card-outline-width: 1px;
+  --_card-rest-shadow: var(--md-web-elevation-shadow-level0, none);
+}
+
+@media (forced-colors: active) {
+  .md-card[data-variant='outlined']::before {
+    box-shadow: inset 0 0 0 1px CanvasText;
+  }
+}

@@ -1,4 +1,7 @@
 /* Aggregate component stylesheet. Foundation variables remain consumer-defined. */
 @import '../components/button/button.css';
+@import '../components/card/card.css';
+@import '../components/card/card-action.css';
+@import '../components/card/card-link.css';
 @import '../components/fab/fab.css';
 @import '../components/icon-button/icon-button.css';

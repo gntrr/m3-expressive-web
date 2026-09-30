@@ -1,0 +1,78 @@
+.card-action-story {
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  display: grid;
+  gap: 24px;
+  min-block-size: 100%;
+  padding: 24px;
+}
+
+.card-action-story[data-mode='dark'] {
+  background: var(--md-sys-color-surface-dim);
+}
+
+.card-action-story__header,
+.card-action-story__grid,
+.card-action-story__row {
+  display: grid;
+  gap: 16px;
+}
+
+.card-action-story__header {
+  max-inline-size: 48rem;
+}
+
+.card-action-story__header h1,
+.card-action-story__header p,
+.card-action-story__grid h2 {
+  margin: 0;
+}
+
+.card-action-story__eyebrow {
+  color: var(--md-sys-color-primary);
+}
+
+.card-action-story__grid {
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.card-action-story__grid section {
+  display: grid;
+  gap: 10px;
+}
+
+.card-action-story__row {
+  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.card-action-story__content {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+}
+
+.card-action-story__content svg {
+  block-size: 24px;
+  fill: none;
+  inline-size: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.card-action-story__theme-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}
+
+.card-action-story__reflow {
+  max-inline-size: 32rem;
+}
+
+.card-action-story__invalid-code {
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-medium);
+  margin: 0;
+  overflow-x: auto;
+  padding: 16px;
+}

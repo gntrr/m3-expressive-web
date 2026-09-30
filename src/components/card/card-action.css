@@ -1,0 +1,220 @@
+/*
+ * Material CardAction renderer. This is intentionally separate from static
+ * Card: it owns a native button's state layers, focus indication, and state
+ * elevation while foundations continue to own system values.
+ */
+.md-card-action {
+  --_card-action-container-color: var(--md-sys-color-surface-container-highest);
+  --_card-action-content-color: var(--md-sys-color-on-surface);
+  --_card-action-disabled-container-color: color-mix(
+    in srgb,
+    var(--md-sys-color-surface-variant) 38%,
+    var(--md-sys-color-surface-container-highest)
+  );
+  --_card-action-disabled-content-color: color-mix(
+    in srgb,
+    var(--md-sys-color-on-surface) 38%,
+    transparent
+  );
+  --_card-action-outline-color: transparent;
+  --_card-action-disabled-outline-color: transparent;
+  --_card-action-outline-width: 0px;
+  --_card-action-rest-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-hover-shadow: var(--md-web-elevation-shadow-level1, none);
+  --_card-action-focus-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-pressed-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-disabled-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-focus-ring-color: var(--md-sys-color-secondary);
+
+  appearance: none;
+  background: transparent;
+  border: 0;
+  box-shadow: var(--_card-action-rest-shadow);
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  inline-size: fit-content;
+  margin: 0;
+  max-inline-size: 100%;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+  text-align: start;
+  text-transform: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.md-card-action__visual {
+  background: var(--_card-action-container-color);
+  border-radius: var(--md-sys-shape-corner-medium);
+  box-sizing: border-box;
+  color: var(--_card-action-content-color);
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.md-card-action__visual::before,
+.md-card-action__visual::after {
+  border-radius: inherit;
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.md-card-action__visual::before {
+  background: currentColor;
+  opacity: 0;
+}
+
+.md-card-action__visual::after {
+  box-shadow: inset 0 0 0 var(--_card-action-outline-width)
+    var(--_card-action-outline-color);
+}
+
+.md-card-action__content {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.md-card-action[data-variant='filled'] {
+  --_card-action-container-color: var(--md-sys-color-surface-container-highest);
+  --_card-action-content-color: var(--md-sys-color-on-surface);
+  --_card-action-disabled-container-color: color-mix(
+    in srgb,
+    var(--md-sys-color-surface-variant) 38%,
+    var(--md-sys-color-surface-container-highest)
+  );
+  --_card-action-rest-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-hover-shadow: var(--md-web-elevation-shadow-level1, none);
+  --_card-action-focus-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-pressed-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-disabled-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-focus-ring-color: var(--md-sys-color-secondary);
+}
+
+.md-card-action[data-variant='elevated'] {
+  --_card-action-container-color: var(--md-sys-color-surface-container-low);
+  --_card-action-content-color: var(--md-sys-color-on-surface);
+  --_card-action-disabled-container-color: color-mix(
+    in srgb,
+    var(--md-sys-color-surface) 38%,
+    var(--md-sys-color-surface)
+  );
+  --_card-action-rest-shadow: var(--md-web-elevation-shadow-level1, none);
+  --_card-action-hover-shadow: var(--md-web-elevation-shadow-level2, none);
+  --_card-action-focus-shadow: var(--md-web-elevation-shadow-level1, none);
+  --_card-action-pressed-shadow: var(--md-web-elevation-shadow-level1, none);
+  --_card-action-disabled-shadow: var(--md-web-elevation-shadow-level1, none);
+  --_card-action-focus-ring-color: var(--md-sys-color-secondary);
+}
+
+.md-card-action[data-variant='outlined'] {
+  --_card-action-container-color: var(--md-sys-color-surface);
+  --_card-action-content-color: var(--md-sys-color-on-surface);
+  --_card-action-disabled-container-color: var(--md-sys-color-surface);
+  --_card-action-outline-color: var(--md-sys-color-outline-variant);
+  --_card-action-disabled-outline-color: color-mix(
+    in srgb,
+    var(--md-sys-color-outline) 12%,
+    var(--md-sys-color-surface-container-low)
+  );
+  --_card-action-outline-width: 1px;
+  --_card-action-rest-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-hover-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-focus-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-pressed-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-disabled-shadow: var(--md-web-elevation-shadow-level0, none);
+  --_card-action-focus-ring-color: var(--md-sys-color-on-surface);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .md-card-action:not(:disabled):hover {
+    box-shadow: var(--_card-action-hover-shadow);
+  }
+
+  .md-card-action:not(:disabled):hover .md-card-action__visual::before {
+    opacity: var(--md-sys-state-hover-state-layer-opacity);
+  }
+}
+
+.md-card-action:not(:disabled):focus-visible {
+  box-shadow: var(--_card-action-focus-shadow);
+  outline: 2px solid var(--_card-action-focus-ring-color);
+  outline-offset: 2px;
+}
+
+.md-card-action:not(:disabled):focus-visible .md-card-action__visual::before {
+  opacity: var(--md-sys-state-focus-state-layer-opacity);
+}
+
+.md-card-action:not(:disabled):active {
+  box-shadow: var(--_card-action-pressed-shadow);
+}
+
+.md-card-action:not(:disabled):active .md-card-action__visual::before {
+  opacity: var(--md-sys-state-pressed-state-layer-opacity);
+}
+
+.md-card-action:disabled {
+  box-shadow: var(--_card-action-disabled-shadow);
+  cursor: not-allowed;
+}
+
+.md-card-action:disabled .md-card-action__visual {
+  background: var(--_card-action-disabled-container-color);
+  color: var(--_card-action-disabled-content-color);
+}
+
+.md-card-action:disabled .md-card-action__visual::before {
+  opacity: 0;
+}
+
+.md-card-action:disabled .md-card-action__visual::after {
+  box-shadow: inset 0 0 0 var(--_card-action-outline-width)
+    var(--_card-action-disabled-outline-color);
+}
+
+@media (forced-colors: active) {
+  .md-card-action {
+    box-shadow: none;
+    forced-color-adjust: auto;
+  }
+
+  .md-card-action__visual {
+    background: ButtonFace;
+    color: ButtonText;
+  }
+
+  .md-card-action__visual::before {
+    display: none;
+  }
+
+  .md-card-action__visual::after {
+    box-shadow: inset 0 0 0 1px ButtonText;
+  }
+
+  .md-card-action:focus-visible {
+    outline-color: Highlight;
+  }
+
+  .md-card-action:disabled .md-card-action__visual {
+    color: GrayText;
+  }
+
+  .md-card-action:disabled .md-card-action__visual::after {
+    box-shadow: inset 0 0 0 1px GrayText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-card-action,
+  .md-card-action__visual {
+    animation: none;
+    transition: none;
+  }
+}
