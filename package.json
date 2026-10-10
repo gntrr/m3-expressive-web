@@ -47,6 +47,10 @@
       "types": "./dist/components/icon-button/index.d.ts",
       "import": "./dist/components/icon-button/index.js"
     },
+    "./components/segmented-button": {
+      "types": "./dist/components/segmented-button/index.d.ts",
+      "import": "./dist/components/segmented-button/index.js"
+    },
     "./foundation": {
       "types": "./dist/foundation/index.d.ts",
       "import": "./dist/foundation/index.js"

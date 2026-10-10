@@ -1,0 +1,252 @@
+/* Material 3 Segmented Button: pinned AndroidX c73a560c5c9ba4ed53a4f6dd5df36dfd16a837e7. */
+.md-segmented-button-group {
+  border: 0;
+  inline-size: fit-content;
+  margin: 0;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  padding: 0;
+}
+
+.md-segmented-button-group__legend {
+  color: inherit;
+  font: inherit;
+  margin-block-end: 8px;
+  padding: 0;
+}
+
+.md-segmented-button-group__items {
+  display: inline-grid;
+  grid-template-columns: repeat(var(--md-segmented-button-count), minmax(58px, 1fr));
+  inline-size: fit-content;
+  max-inline-size: 100%;
+}
+
+.md-segmented-button-group__segment {
+  --_md-segmented-button-container: transparent;
+  --_md-segmented-button-content: var(--md-sys-color-on-surface);
+  --_md-segmented-button-outline: var(--md-sys-color-outline);
+  --_md-segmented-button-state-layer: var(--md-sys-color-on-surface);
+
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  min-inline-size: 58px;
+  position: relative;
+}
+
+.md-segmented-button-group__segment:not([data-position='only']):not([data-position='logical-start']) {
+  margin-inline-start: -1px;
+}
+
+.md-segmented-button-group__segment[data-selected='true'],
+.md-segmented-button-group__segment:has(.md-segmented-button-group__input:focus-visible),
+.md-segmented-button-group__segment:has(.md-segmented-button-group__input:active) {
+  z-index: 1;
+}
+
+.md-segmented-button-group__segment[data-disabled='true'] {
+  cursor: default;
+}
+
+.md-segmented-button-group__input {
+  block-size: 1px;
+  clip-path: inset(50%);
+  inline-size: 1px;
+  margin: -1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.md-segmented-button-group__visual {
+  align-items: center;
+  background: var(--_md-segmented-button-container);
+  border-radius: 0;
+  box-shadow: var(--md-web-elevation-shadow-level0);
+  box-sizing: border-box;
+  color: var(--_md-segmented-button-content);
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  min-block-size: 40px;
+  min-inline-size: 58px;
+  overflow: hidden;
+  padding-block: 8px;
+  padding-inline: 12px;
+  position: relative;
+}
+
+.md-segmented-button-group__visual::before,
+.md-segmented-button-group__visual::after {
+  border-radius: inherit;
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.md-segmented-button-group__visual::before {
+  background: var(--_md-segmented-button-state-layer);
+  opacity: 0;
+}
+
+.md-segmented-button-group__visual::after {
+  box-shadow: inset 0 0 0 1px var(--_md-segmented-button-outline);
+}
+
+.md-segmented-button-group__segment[data-position='only'] .md-segmented-button-group__visual {
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.md-segmented-button-group__segment[data-position='logical-start'] .md-segmented-button-group__visual {
+  border-end-start-radius: var(--md-sys-shape-corner-full);
+  border-end-end-radius: 0;
+  border-start-end-radius: 0;
+  border-start-start-radius: var(--md-sys-shape-corner-full);
+}
+
+.md-segmented-button-group__segment[data-position='logical-end'] .md-segmented-button-group__visual {
+  border-end-start-radius: 0;
+  border-end-end-radius: var(--md-sys-shape-corner-full);
+  border-start-end-radius: var(--md-sys-shape-corner-full);
+  border-start-start-radius: 0;
+}
+
+.md-segmented-button-group__input:checked + .md-segmented-button-group__visual {
+  --_md-segmented-button-container: var(--md-sys-color-secondary-container);
+  --_md-segmented-button-content: var(--md-sys-color-on-secondary-container);
+  --_md-segmented-button-state-layer: var(--md-sys-color-on-secondary-container);
+}
+
+.md-segmented-button-group__icon {
+  block-size: 18px;
+  display: inline-flex;
+  flex: 0 0 18px;
+  inline-size: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.md-segmented-button-group__icon > img,
+.md-segmented-button-group__icon > svg {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.md-segmented-button-group__label {
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-size: var(--md-sys-typescale-label-large-size);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+  position: relative;
+  text-wrap: wrap;
+  z-index: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .md-segmented-button-group__input:not(:disabled) + .md-segmented-button-group__visual:hover::before {
+    opacity: var(--md-sys-state-hover-state-layer-opacity);
+  }
+}
+
+.md-segmented-button-group__input:not(:disabled):focus-visible + .md-segmented-button-group__visual::before {
+  opacity: var(--md-sys-state-focus-state-layer-opacity);
+}
+
+.md-segmented-button-group__input:not(:disabled):active + .md-segmented-button-group__visual::before {
+  opacity: var(--md-sys-state-pressed-state-layer-opacity);
+}
+
+.md-segmented-button-group__segment:has(.md-segmented-button-group__input:focus-visible)::after {
+  border: 2px solid var(--md-sys-color-secondary);
+  border-radius: inherit;
+  content: '';
+  inset: -2px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.md-segmented-button-group__segment[data-position='only']:has(.md-segmented-button-group__input:focus-visible)::after {
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.md-segmented-button-group__segment[data-position='logical-start']:has(.md-segmented-button-group__input:focus-visible)::after {
+  border-end-start-radius: var(--md-sys-shape-corner-full);
+  border-start-start-radius: var(--md-sys-shape-corner-full);
+}
+
+.md-segmented-button-group__segment[data-position='logical-end']:has(.md-segmented-button-group__input:focus-visible)::after {
+  border-end-end-radius: var(--md-sys-shape-corner-full);
+  border-start-end-radius: var(--md-sys-shape-corner-full);
+}
+
+@supports not selector(label:has(input:focus-visible)) {
+  .md-segmented-button-group__input:focus-visible + .md-segmented-button-group__visual {
+    outline: 2px solid var(--md-sys-color-secondary);
+    outline-offset: 2px;
+  }
+}
+
+/* AndroidX runtime chooses opaque disabled-unselected content/boundary; see SPEC.md. */
+.md-segmented-button-group__input:disabled + .md-segmented-button-group__visual {
+  --_md-segmented-button-container: transparent;
+  --_md-segmented-button-content: var(--md-sys-color-on-surface);
+  --_md-segmented-button-outline: var(--md-sys-color-outline);
+  --_md-segmented-button-state-layer: var(--md-sys-color-on-surface);
+}
+
+.md-segmented-button-group__input:disabled:checked + .md-segmented-button-group__visual {
+  --_md-segmented-button-container: var(--md-sys-color-secondary-container);
+  --_md-segmented-button-content: color-mix(
+    in srgb,
+    var(--md-sys-color-on-surface) 38%,
+    transparent
+  );
+  --_md-segmented-button-outline: color-mix(
+    in srgb,
+    var(--md-sys-color-outline) 12%,
+    transparent
+  );
+}
+
+@media (forced-colors: active) {
+  .md-segmented-button-group__visual {
+    background: ButtonFace;
+    box-shadow: none;
+    color: ButtonText;
+  }
+
+  .md-segmented-button-group__visual::before {
+    display: none;
+  }
+
+  .md-segmented-button-group__visual::after {
+    box-shadow: inset 0 0 0 1px ButtonText;
+  }
+
+  .md-segmented-button-group__input:checked + .md-segmented-button-group__visual::after {
+    box-shadow: inset 0 0 0 2px ButtonText;
+  }
+
+  .md-segmented-button-group__segment:has(.md-segmented-button-group__input:focus-visible)::after {
+    border-color: Highlight;
+  }
+
+  .md-segmented-button-group__input:disabled + .md-segmented-button-group__visual {
+    color: GrayText;
+  }
+
+  .md-segmented-button-group__input:disabled + .md-segmented-button-group__visual::after {
+    box-shadow: inset 0 0 0 1px GrayText;
+  }
+
+  .md-segmented-button-group__input:disabled:checked + .md-segmented-button-group__visual::after {
+    box-shadow: inset 0 0 0 2px GrayText;
+  }
+}

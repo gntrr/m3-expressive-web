@@ -88,7 +88,8 @@ function inspectLabel(children: ReactNode): {
   return { hasOpaqueContent, hasText, invalidContent };
 }
 
-export function validateAssistChipLabel(
+export function validateCommandChipLabel(
+  componentName: string,
   ariaLabel: string | undefined,
   ariaLabelledby: string | undefined,
   children: ReactNode,
@@ -98,19 +99,25 @@ export function validateAssistChipLabel(
   const hasAriaLabelledby = ariaLabelledby !== undefined;
 
   if (hasAriaLabel && hasAriaLabelledby) {
-    throw new Error('AssistChip accepts either aria-label or aria-labelledby, not both.');
+    throw new Error(
+      componentName + ' accepts either aria-label or aria-labelledby, not both.',
+    );
   }
   if (hasAriaLabel && !hasNonEmptyValue(ariaLabel)) {
-    throw new Error('AssistChip aria-label must not be blank or whitespace-only.');
+    throw new Error(
+      componentName + ' aria-label must not be blank or whitespace-only.',
+    );
   }
   if (hasAriaLabelledby && !hasNonEmptyValue(ariaLabelledby)) {
-    throw new Error('AssistChip aria-labelledby must not be blank or whitespace-only.');
+    throw new Error(
+      componentName + ' aria-labelledby must not be blank or whitespace-only.',
+    );
   }
 
   const { hasOpaqueContent, hasText, invalidContent } = inspectLabel(children);
   if (invalidContent.size > 0) {
     console.warn(
-      'AssistChip labels must be non-interactive phrasing content. Detected unsupported host content: ' +
+      componentName + ' labels must be non-interactive phrasing content. Detected unsupported host content: ' +
         [...invalidContent].join(', ') +
         '. Custom components cannot be verified at runtime.',
     );
@@ -118,12 +125,23 @@ export function validateAssistChipLabel(
   if (!hasAriaLabel && !hasAriaLabelledby && !hasText) {
     if (hasOpaqueContent) {
       console.warn(
-        'AssistChip could not verify a textual label from a custom component. Provide visible text or aria-label/aria-labelledby; title is not an accessible-name substitute.',
+        componentName +
+          ' could not verify a textual label from a custom component. Provide visible text or aria-label/aria-labelledby; title is not an accessible-name substitute.',
       );
       return;
     }
     throw new Error(
-      'AssistChip requires a non-empty visible textual label or aria-label/aria-labelledby. title is not an accessible-name substitute.',
+      componentName +
+        ' requires a non-empty visible textual label or aria-label/aria-labelledby. title is not an accessible-name substitute.',
     );
   }
+}
+
+/** @internal Compatibility wrapper for the existing AssistChip contract. */
+export function validateAssistChipLabel(
+  ariaLabel: string | undefined,
+  ariaLabelledby: string | undefined,
+  children: ReactNode,
+): void {
+  validateCommandChipLabel('AssistChip', ariaLabel, ariaLabelledby, children);
 }
