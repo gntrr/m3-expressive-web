@@ -1,0 +1,100 @@
+{
+  "formatVersion": 1,
+  "purpose": "Inventory of the pinned source record for public foundations and components. Numeric values and platform translations remain in the referenced source modules and SPEC files.",
+  "foundations": [
+    {
+      "id": "color",
+      "record": "src/foundation/color/source.ts",
+      "primarySource": "@material/material-color-utilities@0.4.0",
+      "revision": "eeaf82b8e11bf20f6d8da7c76336575b69e79e01",
+      "status": "stable"
+    },
+    {
+      "id": "typography",
+      "record": "src/foundation/typography/source.ts",
+      "primarySource": "Material Web token snapshot 34.0.21",
+      "revision": "c05b4b23485c803f68ff31cde52506cea5cc555a",
+      "status": "stable"
+    },
+    {
+      "id": "shape",
+      "record": "src/foundation/shape/source.ts",
+      "primarySource": "AndroidX Material3 ShapeTokens and MaterialShapes",
+      "revision": "9df4d001962d58aabca222967b8ceb1789acb960",
+      "status": "stable-with-experimental-expressive-geometry"
+    },
+    {
+      "id": "elevation",
+      "record": "src/foundation/elevation/source.ts",
+      "primarySource": "AndroidX Material3 ElevationTokens and Material Web elevation tokens",
+      "revision": "9df4d001962d58aabca222967b8ceb1789acb960",
+      "status": "stable"
+    },
+    {
+      "id": "motion",
+      "record": "src/foundation/motion/source.ts",
+      "primarySource": "AndroidX Material3 motion schemes and Material Web motion tokens",
+      "revision": "9df4d001962d58aabca222967b8ceb1789acb960",
+      "status": "stable-data-no-web-runtime"
+    },
+    {
+      "id": "interaction-state",
+      "record": "src/foundation/state/source.ts",
+      "primarySource": "AndroidX Material3 StateTokens and Material Web state tokens",
+      "revision": "2d82078ac06ce59eac8b21a877283b046bf66e3e",
+      "status": "stable"
+    },
+    {
+      "id": "adaptive-layout",
+      "record": "src/foundation/adaptive-layout/source.ts",
+      "primarySource": "AndroidX WindowSizeClass",
+      "revision": "c39790fae05be897dc522b3710db07d44d54f4d0",
+      "status": "provisional-web-translation"
+    }
+  ],
+  "components": [
+    {
+      "id": "button",
+      "record": "src/components/button/SPEC.md",
+      "androidxRevision": "caff944e3c964d90779c1e71d965ff755debc0ba",
+      "status": "stable-with-provisional-expressive-motion"
+    },
+    {
+      "id": "icon-button",
+      "record": "src/components/icon-button/SPEC.md",
+      "androidxRevision": "dd97834aa54671ee1f56d65fa46668b4ffeb57e8",
+      "status": "stable-with-provisional-square-shape-and-motion"
+    },
+    {
+      "id": "fab",
+      "record": "src/components/fab/SPEC.md",
+      "androidxRevision": "160825094a81825468a95b115bfb1b541e549856",
+      "status": "stable-with-provisional-web-focus-translation"
+    },
+    {
+      "id": "card",
+      "record": "src/components/card/SPEC.md",
+      "androidxRevision": "b0e5f9fe34e7ad2e8e8619ba3bc010dc4fd45a6b",
+      "status": "stable"
+    },
+    {
+      "id": "card-action-and-link",
+      "record": "src/components/card/CARD_ACTION_SPEC.md and src/components/card/CARD_LINK_SPEC.md",
+      "androidxRevision": "b0e5f9fe34e7ad2e8e8619ba3bc010dc4fd45a6b",
+      "status": "stable-with-provisional-focus-and-disabled-compositing"
+    },
+    {
+      "id": "chip-family",
+      "record": "src/components/chip/SPEC.md and src/components/chip/INPUT_CHIP_SPEC.md",
+      "androidxRevision": "c305b06271d332bc53767113d6d9fadbd61c1ab7",
+      "status": "stable-with-provisional-focus-and-input-chip-web-translation"
+    },
+    {
+      "id": "segmented-button",
+      "record": "src/components/segmented-button/SPEC.md",
+      "androidxRevision": "c73a560c5c9ba4ed53a4f6dd5df36dfd16a837e7",
+      "status": "stable-with-provisional-disabled-unselected-translation"
+    }
+  ],
+  "reviewRule": "Update this inventory, the referenced source record or SPEC, deterministic tests, and changelog/release notes together whenever a pinned source revision changes."
+}

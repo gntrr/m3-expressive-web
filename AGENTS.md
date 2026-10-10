@@ -97,7 +97,7 @@ Write TypeScript and React function components with two-space indentation, singl
 
 ## Testing Guidelines
 
-Vitest uses `@storybook/addon-vitest` with Playwright Chromium. Treat every visual state as a story and add `play` interactions for behavior that requires user input. Accessibility checks are currently reported as TODOs rather than CI failures; still resolve violations before submitting. There is no configured coverage threshold. Run `bunx vitest run` and `bun run build-storybook` before opening a pull request.
+Vitest uses `@storybook/addon-vitest` with Playwright Chromium. Treat every visual state as a story and add `play` interactions for behavior that requires user input. Storybook accessibility violations are configured as test errors; resolve them before submitting. There is no configured coverage threshold. Run `bunx vitest run` and `bun run build-storybook` before opening a pull request.
 
 ## Commit & Pull Request Guidelines
 

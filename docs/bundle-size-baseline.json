@@ -1,0 +1,45 @@
+{
+  "measurement": "Raw unminified ESM bytes from tsup output. The package does not currently emit minified library artifacts.",
+  "entries": {
+    "root": {
+      "files": ["dist/index.js", "dist/components/index.js", "dist/foundation/index.js"],
+      "baselineBytes": 654,
+      "budgetBytes": 1024
+    },
+    "button": {
+      "files": ["dist/components/button/Button.js", "dist/components/button/index.js"],
+      "baselineBytes": 1666,
+      "budgetBytes": 3072
+    },
+    "icon-button": {
+      "files": ["dist/components/icon-button/IconButton.js", "dist/components/icon-button/ToggleIconButton.js", "dist/components/icon-button/icon-button-shared.js", "dist/components/icon-button/index.js"],
+      "baselineBytes": 4137,
+      "budgetBytes": 6144
+    },
+    "fab": {
+      "files": ["dist/components/fab/Fab.js", "dist/components/fab/ExtendedFab.js", "dist/components/fab/fab-shared.js", "dist/components/fab/index.js"],
+      "baselineBytes": 4535,
+      "budgetBytes": 7168
+    },
+    "card": {
+      "files": ["dist/components/card/Card.js", "dist/components/card/CardAction.js", "dist/components/card/CardLink.js", "dist/components/card/card-development.js", "dist/components/card/index.js"],
+      "baselineBytes": 8912,
+      "budgetBytes": 12288
+    },
+    "chip": {
+      "files": ["dist/components/chip/AssistChip.js", "dist/components/chip/FilterChip.js", "dist/components/chip/InputChip.js", "dist/components/chip/SuggestionChip.js", "dist/components/chip/chip-shared.js", "dist/components/chip/index.js"],
+      "baselineBytes": 14364,
+      "budgetBytes": 20480
+    },
+    "segmented-button": {
+      "files": ["dist/components/segmented-button/SingleSelectSegmentedButtonGroup.js", "dist/components/segmented-button/MultiSelectSegmentedButtonGroup.js", "dist/components/segmented-button/segmented-button-shared.js", "dist/components/segmented-button/index.js"],
+      "baselineBytes": 11248,
+      "budgetBytes": 16384
+    },
+    "color-generator": {
+      "files": ["dist/foundation/color/generator.js"],
+      "baselineBytes": 199754,
+      "budgetBytes": 262144
+    }
+  }
+}
