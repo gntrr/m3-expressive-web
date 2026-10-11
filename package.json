@@ -121,7 +121,9 @@
     "test:unit": "vitest run --project unit",
     "test:stories": "vitest run --project storybook",
     "test:package": "node scripts/verify-packed-exports.mjs",
+    "test:next-fixture": "node scripts/test-next-fixture.mjs",
     "check:bundle-size": "node scripts/check-bundle-size.mjs",
+    "verify:release": "node scripts/verify-release.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

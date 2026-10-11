@@ -19,3 +19,7 @@ test-results/
 # Editor and operating-system files
 .DS_Store
 *.log
+
+# Permanent Next.js packed-package integration fixture output
+fixtures/next-app/.artifacts/
+fixtures/next-app/.next/

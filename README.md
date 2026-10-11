@@ -60,6 +60,13 @@ All library components render native HTML and are SSR-safe. Place consumer
 event handlers and controlled state in a consumer client boundary when using
 Next.js. Importing this package never adds `'use client'`.
 
+The permanent App Router integration fixture at `fixtures/next-app` installs
+the tarball created by `bun pm pack`; it does not import library source. Its
+Server Component imports ordinary primitives, while its explicit Client
+Component owns ToggleIconButton, FilterChip, segmented-button, and InputChip
+state. Run `bun run test:next-fixture` after `bun run build` to production-build
+and browser-smoke that consumer.
+
 Use visible labels for text controls. Icon-only `IconButton`, toggle, and
 icon-only FAB usages require `aria-label` or `aria-labelledby`; `title` is not
 an accessible-name substitute. The package does not add default focus, hover,
@@ -76,8 +83,13 @@ bun run test:stories
 bun run build-storybook
 bun run test:package
 bun run check:bundle-size
+bun run test:next-fixture
+bun run verify:release
 ```
 
-Storybook browser coverage currently runs in Chromium. Firefox/WebKit,
-visual-regression, and a real Next.js consumer fixture are planned release
-gates; see [the v0 architecture audit](docs/V0_ARCHITECTURE_AUDIT.md).
+`verify:release` runs the deterministic release gates against the built and
+packed package, including the Next.js fixture. It requires Playwright Chromium
+for Storybook and fixture browser checks. CI runs the same named gates on pull
+requests. Chromium is the only browser currently automated; Firefox/WebKit and
+visual regression remain planned work. See
+[the v0 architecture audit](docs/V0_ARCHITECTURE_AUDIT.md).

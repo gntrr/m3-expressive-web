@@ -1,0 +1,25 @@
+{
+  "name": "m3-expressive-web-next-integration",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "bun@1.4.0",
+  "engines": {
+    "node": ">=20.9"
+  },
+  "scripts": {
+    "build": "next build --webpack",
+    "start": "next start --hostname 127.0.0.1"
+  },
+  "dependencies": {
+    "m3-expressive-web": "file:.artifacts/m3-expressive-web.tgz",
+    "next": "16.4.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "24.0.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "typescript": "5.9.3"
+  }
+}

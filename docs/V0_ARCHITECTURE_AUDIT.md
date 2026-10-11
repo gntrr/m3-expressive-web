@@ -1,6 +1,6 @@
 # v0 architecture and integration audit
 
-Audit date: 2026-10-10. This is a source/build audit, not a claim that the
+Audit date: 2026-10-11. This is a source/build audit, not a claim that the
 library has been published or exercised in a production consumer.
 
 ## Current health
@@ -39,15 +39,17 @@ until a measured replacement is validated.
 | Export map | Public subpaths are explicit; internal paths are blocked. | Healthy |
 | Packed artifact | Archive contains `dist` plus package metadata and README. | Automated smoke coverage |
 | Peer dependencies | React and ReactDOM use `^19.0.0`; no component runtime dependency is bundled. | Healthy |
-| SSR | Source inspection found no browser-global or client-only package runtime. | Source-level only |
-| Next.js | No real consumer fixture exists. Installing Next solely for this audit would add a new dependency. | P1 gated recommendation |
+| SSR | Source inspection found no browser-global or client-only package runtime. | Verified in packed Next.js App Router fixture |
+| Next.js | `fixtures/next-app` pins Next.js 16.4.0 with React 19.2.8, installs the packed tarball, builds production output, and smokes hydration. | Automated |
 | CSS | A single opt-in `styles.css` export exists; component CSS is emitted as side-effectful files. | Healthy |
 | CSS duplication | Similar visual-shell patterns are intentionally private and component-specific where semantics differ. | P2 review, no refactor |
 
-Use a real Next.js fixture before publishing: install the packed tarball into an
-isolated app, server-render a foundation/component page, hydrate controlled
-examples from a consumer client boundary, and verify CSS import order. Do not
-add that dependency implicitly to this private library.
+The fixture imports `m3-expressive-web/styles.css` from the package export,
+generates light and dark schemes through the public color-generator subpath,
+renders ordinary primitives from a Server Component, and hydrates controlled
+consumer state only inside a Client Component. It asserts that the installed
+tarball has no `src/` directory and that browser chunks do not contain MCU.
+Fixture dependencies and lockfile remain isolated from the published package.
 
 ## Performance and artifact findings
 
@@ -74,9 +76,8 @@ terminology differences are intentional: `pressed` for toggle buttons,
 
 Audit components at each release with manual keyboard, focus-visible,
 forced-colors, zoom/reflow, RTL, and reduced-motion passes. Automated a11y
-does not prove those behaviors. `AGENTS.md` still describes a11y checks as
-TODOs; that contributor text should be reconciled with the current
-`a11y.test: 'error'` configuration in a dedicated documentation change.
+does not prove those behaviors. Contributor guidance now records that a11y
+violations are Storybook test errors.
 
 ## Prioritized backlog
 
@@ -84,13 +85,20 @@ TODOs; that contributor text should be reconciled with the current
 
 None found in source/build inspection.
 
-### P1
+### Resolved P1
 
-- Add a real packed-tarball Next.js SSR/hydration consumer fixture once adding
-  and maintaining Next as test infrastructure is approved.
-- Add CI to run typecheck, build, package smoke, bundle budget, unit tests,
-  Chromium Storybook tests, Storybook build, and `git diff --check`.
-- Update contributor documentation to describe the current a11y enforcement.
+- `fixtures/next-app` validates the packed tarball with a real Next.js 16.4.0
+  App Router production build, declaration checking, server rendering, CSS
+  export resolution, MCU client-chunk isolation, and controlled browser smoke.
+- GitHub Actions runs frozen installation, typecheck, library build, unit and
+  Chromium Storybook tests, Storybook build, packed export smoke, bundle
+  budget, Next fixture, and whitespace checks with named steps.
+- Storybook production build remains a pull-request gate at v0: it is the
+  only deterministic build check for public documentation and package CSS
+  bundling. Revisit splitting it into a heavier job only after measured CI time
+  justifies the additional workflow complexity.
+- `bun run verify:release` orchestrates the same deterministic local release
+  gates without publishing anything.
 
 ### P2
 

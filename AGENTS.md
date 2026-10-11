@@ -90,6 +90,8 @@ Use Bun because `bun.lock` is committed as the dependency lockfile.
 - `bun run storybook` starts the local component explorer on port 6006.
 - `bun run build-storybook` creates a production Storybook build in `storybook-static/` and catches configuration or bundling errors.
 - `bunx vitest run` runs Storybook-backed tests headlessly in Chromium. Install Playwright's Chromium binary first if the command reports it missing (`bunx playwright install chromium`).
+- `bun run test:next-fixture` verifies a production Next.js App Router consumer installed from the packed artifact.
+- `bun run verify:release` runs the deterministic release gates, including the packed Next.js fixture; it does not publish a package.
 
 ## Coding Style & Naming Conventions
 
@@ -97,7 +99,7 @@ Write TypeScript and React function components with two-space indentation, singl
 
 ## Testing Guidelines
 
-Vitest uses `@storybook/addon-vitest` with Playwright Chromium. Treat every visual state as a story and add `play` interactions for behavior that requires user input. Storybook accessibility violations are configured as test errors; resolve them before submitting. There is no configured coverage threshold. Run `bunx vitest run` and `bun run build-storybook` before opening a pull request.
+Vitest uses `@storybook/addon-vitest` with Playwright Chromium. Treat every visual state as a story and add `play` interactions for behavior that requires user input. Storybook accessibility violations are configured as test errors; resolve them before submitting. There is no configured coverage threshold. Run `bun run verify:release` before opening a pull request when the local Chromium dependency is available.
 
 ## Commit & Pull Request Guidelines
 
